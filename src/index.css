@@ -1,13 +1,312 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+nav {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  width: 100%;
+  height: 65px;
+  background: white;
+}
+
+.wrapper nav input{
+  border: 2px solid grey;
+  height: 25px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.wrapper .headerContainer {
+  max-width: 975px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper nav .instaLogo {
+  width: 150px;
+  height: 48px;
+  min-width: 150px;
+
+}
+
+.wrapper nav .instaLogo img{
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper nav .icons {
+  display: flex;
+
+}
+
+.wrapper nav .icons > div {
+  margin-left: 22px;
+}
+
+.wrapper nav .icons a {
+  font-size: 22px;
+  color: black;
+}
+
+#accountPic{
+  border-radius: 50%;
+  width: 22px;
+}
+
+.mainPage .profile{
+  height: 195px;
+  margin-bottom: 45px;
+  display: flex;
+}
+
+.mainPage{
+  margin:0 auto 30px;
+  max-width: 975px;
+  padding-top: 30px;
+}
+
+.mainPage .profile .profilePicContainer{
+  min-width: 292px;
+  height: 100%;
+  margin-right: 30px;
+}
+
+.mainPage .profile .profilePic {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.mainPage .profile .profilePic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.profile .staticText .row_1{
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.profile .staticText .row_1 h2{
+  color:grey;
+}
+
+.profile .staticText .buttons{
+  width: 153px;
+  display: flex;
+  margin-left: 20px;
+  height: 30px;
+  justify-content: flex-start;
+}
+
+.profile .staticText .followButton{
+  height: 100%;
+  width: 92px;
+  background-color: #0095F6;
+  border: 0;
+  border-radius: 5%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.profile .staticText .followed{
+  height: 100%;
+  width: 92px;
+  border: 0;
+  border-radius: 5%;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+
+.profile .staticText .button_2 {
+  height: 100%;
+  width: 34px;
+  background-color: #0095F6;
+  border: 0;
+  border-radius: 5%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.profile .staticText .row_2{
+  margin-bottom: 20px;
+  min-width: 0;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.profile .staticText .row_2 > div{
+  margin-right: 40px;
+}
+
+.profile .staticText .row_3 {
+  font-family: sans-serif;
+}
+
+.profile .staticText .row_3 > p{
+  margin-bottom: 5px;
+}
+
+.profile .staticText .row_3 .companyTag{
+  color: grey;
+}
+
+.mainPage .menuContainer{
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid grey;
+  color: grey;
+}
+
+.mainPage .menuContainer a{
+  color: darkgrey;
+  text-decoration: none;
+}
+
+.mainPage .menuContainer a:hover{
+  color: grey;
+}
+
+
+.menuContainer .menuItems{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 60px;
+  height: 100%;
+}
+
+.mainPage .menuContainer h4{
+  letter-spacing: 1px;
+  margin-left: 5px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.mainPage .menuContainer .active {
+  color: black;
+  border-top: 1px solid black;
+}
+
+.mainPage #imagesContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.mainPage #igtvContainer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.hidden{
+  display: none;
+}
+/* .images.active{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.images{
+  display: none;
+} */
+
+.images{
+  margin-bottom: 5px;
+  margin-right: 5px;
+  width: 100%;
+  height: 100%;
+  min-width: 250px;
+  min-height: 250px;
+  
+}
+
+.likeComment {
+  transition: .5s ease;
+  opacity: 0;
+  top: 7.5rem;
+  left: 4.5rem;
+  /* top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; */
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.likeCommentButton{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-right: 1.5rem;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+}
+
+.imagePost{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* .likeCommentButton #LikeIcon{
+  color: red;
+  font-size: 20px;
+} */
+
+ .unlikedIcon{
+  color: red;
+}
+
+.onHoverIcon{
+  margin-right: 10px;
+}
+
+.imagePost:hover .likeComment{
+  visibility: visible;
+  opacity: 0.68;
+  /* background-color: rgba(128,128,128,0.75); */
+}
+
+.imagePost:hover{
+  opacity: 0.8;
+}
+
+.post{
+  height: 100%;
+  width: 100%;
 }
