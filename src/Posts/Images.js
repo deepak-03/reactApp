@@ -10,9 +10,7 @@ function Images(props){
     return(
         <div className={props.currentTab === "imageLink" ? "images" : "images hidden"}>
             <div id="imagesContainer" className="imagesTab">
-                {/* <div className="imagePost"> */}
                     {images}
-                {/* </div> */}
             </div>
         </div>
     );

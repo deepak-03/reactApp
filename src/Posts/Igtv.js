@@ -4,16 +4,13 @@ import LikeCommentDiv from "./LikeCommentDiv";
 
 function Igtv(props){
     const videos = props.data.map(video => {
-        return <IgtvElement key={video.id} video={video} />
+        return <IgtvElement key={video.id} video={video} data={video} />
     })
 
     return(
         <div className={props.currentTab==="igtvLink" ? "images" : "images hidden"} id="igtvHere">
             <div id="igtvContainer" class="videosTab">
-                {/* <div className="imagePost"> */}
                     {videos}
-                    <LikeCommentDiv data={props.data} />
-                {/* </div> */}
             </div>
         </div>
     )

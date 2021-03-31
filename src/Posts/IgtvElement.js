@@ -1,10 +1,14 @@
 import React from "react";
+import LikeCommentDiv from "./LikeCommentDiv";
 
 function IgtvElement(props){
     return(
-        <video className="images" controls>
-            <source src={props.video.vidLink} />
-        </video>
+        <div className="imagePost">
+            <video className="images" controls>
+                <source src={props.video.vidLink} />
+            </video>
+            <LikeCommentDiv data={props.data} />
+        </div>
     )
 }
 
