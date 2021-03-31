@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Navbar from "./Navbar";
 import Profile from "./Profile/Profile";
 import MenuContainer from "./MenuContainer";
+import Posts from "./Posts/Posts";
 import "./index.css";
 
 class App extends Component{
@@ -10,18 +11,17 @@ class App extends Component{
         super(props);
         this.state ={
             profileData:{},
-            igtvData:{},
-            postsData:{},
+            igtvData:[],
+            postsData:[],
             currentTab: "imageLink"
         };
         this.handleTabSwitch = this.handleTabSwitch.bind(this);
     }
 
-    componentDidMount(){
-        fetch("./../Data.json")
-        .then(response => response.json())
+   componentDidMount(){
+        fetch("./../Data.json") 
+        .then(response =>response.json())
         .then(data => {
-            // console.log(data);
             this.setState({
                 profileData: data.profileData,
                 postsData: data.posts,

@@ -1,6 +1,8 @@
 import React from "react";
 
 function ProfileNumbers(props){
+    // console.log(typeof(props.followers));
+    // console.log(props.followers);
     return(
         <div className="row_2">
         <div> <b id="numberOfPosts">{props.numberOfPosts}</b> posts </div>

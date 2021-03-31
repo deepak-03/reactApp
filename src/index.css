@@ -288,7 +288,7 @@ nav {
   font-size: 20px;
 } */
 
- .unlikedIcon{
+ .likeCommentButton .unlikedIcon{
   color: red;
 }
 
