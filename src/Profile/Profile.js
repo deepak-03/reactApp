@@ -4,11 +4,10 @@ import ProfileData from "./ProfileData";
 // import "../index.css"
 
 function Profile(props){
-    const {profileData} = props;
     return (
         <div className="profile">
-            <ProfilePic profilePicUrl={profileData.profilePicUrl} />
-            <ProfileData profileData={profileData} />
+            <ProfilePic profilePicUrl={props.profileData.profilePicUrl} />
+            <ProfileData profileData={props.profileData} />
         </div>
     )
 }

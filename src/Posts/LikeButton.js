@@ -11,7 +11,7 @@ class LikeButton extends Component{
         this.handleLikeButton = this.handleLikeButton.bind(this);
     }
 
-    handleLikeButton(e){
+    handleLikeButton(){
         this.setState(prev => {
             return {
                 ifLiked : !prev.ifLiked,
