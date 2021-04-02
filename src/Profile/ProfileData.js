@@ -8,7 +8,7 @@ class ProfileData extends Component{
         super(props);
         this.state = {
           ifFollowed: this.props.profileData.ifFollowed,
-          followers: this.props.profileData.followers
+          followers: props.profileData.followers
         };
         this.handleClick = this.handleClick.bind(this);
       }

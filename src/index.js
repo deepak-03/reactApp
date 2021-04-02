@@ -10,6 +10,7 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state ={
+            loading:false,
             profileData:{},
             igtvData:[],
             postsData:[],
@@ -19,15 +20,21 @@ class App extends Component{
     }
 
    componentDidMount(){
-        fetch("./../Data.json") 
-        .then(response =>response.json())
-        .then(data => {
-            this.setState({
-                profileData: data.profileData,
-                postsData: data.posts,
-                igtvData: data.igtv
-            });
-        });
+       try{
+           fetch("./../Data.json")
+               .then(response => response.json())
+               .then(data => {
+                   this.setState({
+                       profileData: data.profileData,
+                       postsData: data.posts,
+                       igtvData: data.igtv,
+                       loading:true
+                   });
+               });
+        }
+        catch(err){
+            console.log(err);
+        }
     }
 
     handleTabSwitch(e){
@@ -39,6 +46,10 @@ class App extends Component{
     }
 
     render(){
+        if(!this.state.loading)
+        return(
+            <h1>Still Loading...</h1>
+        )
         return (
             <div className="wrapper">
                 <Navbar />

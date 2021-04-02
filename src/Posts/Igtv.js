@@ -1,6 +1,5 @@
 import React from "react";
 import IgtvElement from "./IgtvElement";
-import LikeCommentDiv from "./LikeCommentDiv";
 
 function Igtv(props){
     const videos = props.data.map(video => {

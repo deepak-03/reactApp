@@ -1,9 +1,9 @@
 import React from "react";
 import ProfilePic from "./ProfilePic";
 import ProfileData from "./ProfileData";
-// import "../index.css"
 
 function Profile(props){
+    // console.log(props.profileData.followers)
     return (
         <div className="profile">
             <ProfilePic profilePicUrl={props.profileData.profilePicUrl} />
