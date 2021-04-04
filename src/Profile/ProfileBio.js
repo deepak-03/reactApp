@@ -12,9 +12,11 @@ function ProfileBio(props){
             <div>
                 <p>{props.description}</p>
             </div>
-            <p className="siteLink"><a href="#">
-                <p>{props.externalLink}</p>
-            </a></p>
+            <div className="siteLink">
+                <a href="#">
+                    <p>{props.externalLink}</p>
+                </a>
+            </div>
         </div>
     )
 }

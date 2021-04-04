@@ -8,7 +8,7 @@ function Igtv(props){
 
     return(
         <div className={props.currentTab==="igtvLink" ? "images" : "images hidden"} id="igtvHere">
-            <div id="igtvContainer" class="videosTab">
+            <div id="igtvContainer" className="videosTab">
                     {videos}
             </div>
         </div>

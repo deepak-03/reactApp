@@ -8,9 +8,10 @@ class ProfileData extends Component{
         super(props);
         this.state = {
           ifFollowed: this.props.profileData.ifFollowed,
-          followers: props.profileData.followers
+          followers: this.props.profileData.followers
         };
         this.handleClick = this.handleClick.bind(this);
+        // console.log(this.state.followers);
       }
 
       handleClick(){
