@@ -3,7 +3,7 @@ import LikeCommentDiv from "./LikeCommentDiv"
 function ImageElement(props){
    return(
      <div className="imagePost">
-      <img className="images" src={props.image.imgLink}/>
+      <img className="images" src={props.image.imgLink} alt= {props.image.id1}/>
       <LikeCommentDiv data={props.data} />
      </div>
      )

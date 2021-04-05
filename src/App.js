@@ -51,7 +51,7 @@ class App extends Component{
         )
         return (
             <div className="wrapper">
-                <Navbar />
+                <Navbar accountPicUrl={this.state.profileData.accountPicUrl}/>
                 <div className="mainPage">
                     <Profile profileData={this.state.profileData} />
                     <div id="imageVideoWrapper">
