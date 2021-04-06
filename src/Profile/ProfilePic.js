@@ -1,4 +1,5 @@
 import React from "react";
+import {connect} from "react-redux";
 
 function ProfilePic(props){
     return(
@@ -10,4 +11,10 @@ function ProfilePic(props){
     )
 }
 
-export default ProfilePic;
+const mapStateToProps = state => ({
+    profilePicUrl : state.profileData.profilePicUrl
+})
+
+
+
+export default connect(mapStateToProps)(ProfilePic);

@@ -2,50 +2,29 @@ import React,{Component} from "react";
 import ProfileButtons from "./ProfileButtons.js"
 import ProfileNumbers from "./ProfileNumbers.js"
 import ProfileBio from "./ProfileBio.js"
+import {connect} from "react-redux";
 
 class ProfileData extends Component{
     constructor(props) {
         super(props);
-        this.state = {
-          ifFollowed: this.props.profileData.ifFollowed,
-          followers: this.props.profileData.followers
-        };
-        this.handleClick = this.handleClick.bind(this);
-        // console.log(this.state.followers);
-      }
-
-      handleClick(){
-        this.setState(prev => {
-          return {
-            followers: prev.ifFollowed ? (prev.followers-1) : (prev.followers+1),
-            ifFollowed: !prev.ifFollowed
-          }
-        });
       }
 
     render(){
-        const {
-            profileName,
-            aboutYou,
-            description,
-            externalLink,
-            name,
-            numberOfPosts,
-            following,
-        } = this.props.profileData;
-        //  console.log(this.props.profileData.followers);
         return(
             <div className="staticText">
                 <div className="row_1">
-                    <h2 id="profileName">{name}</h2>
-                    <ProfileButtons ifFollowed = {this.state.ifFollowed} handleClick={this.handleClick}/>
+                    <h2 id="profileName">{this.props.name}</h2>
+                    <ProfileButtons/>
                 </div>
-                {/* <div> <b id="numberOfFollowers">{this.state.followers}</b> followers </div> */}
-                <ProfileNumbers numberOfPosts = {numberOfPosts} followers = {this.state.followers} following = {following} />
-                <ProfileBio profileName ={profileName} aboutYou = {aboutYou} description = {description} externalLink = {externalLink} />
+                <ProfileNumbers />
+                <ProfileBio />
             </div>
         );
     }
 }
 
-export default ProfileData;
+const mapStateToProps = state => ({
+  name : state.profileData.name
+})
+
+export default connect(mapStateToProps)(ProfileData);

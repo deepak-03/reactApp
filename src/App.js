@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Profile from "./Profile/Profile";
 import MenuContainer from "./MenuContainer";
 import Posts from "./Posts/Posts";
-import "./index.css";
+import "./index.css"; 
 
 class App extends Component{
     constructor(props){
@@ -24,7 +24,6 @@ class App extends Component{
                .then(response => response.json())
                .then(data => {
                    this.setState({
-                       profileData: data.profileData,
                        postsData: data.posts,
                        igtvData: data.igtv,
                        loading:true
@@ -37,8 +36,6 @@ class App extends Component{
     }
 
     handleTabSwitch(e){
-        document.getElementById(e.target.parentElement.id).classList.add("active");
-        document.getElementById(this.state.currentTab).classList.remove("active");
         this.setState({
             currentTab: e.target.parentElement.id
         })
@@ -53,9 +50,9 @@ class App extends Component{
             <div className="wrapper">
                 <Navbar accountPicUrl={this.state.profileData.accountPicUrl}/>
                 <div className="mainPage">
-                    <Profile profileData={this.state.profileData} />
+                    <Profile />
                     <div id="imageVideoWrapper">
-                        <MenuContainer handleTabSwitch = {this.handleTabSwitch} />
+                        <MenuContainer handleTabSwitch = {this.handleTabSwitch} currentTab={this.state.currentTab} />
                         <Posts currentTab = {this.state.currentTab} postsData={this.state.postsData} igtvData={this.state.igtvData}/>
                     </div>
                 </div>

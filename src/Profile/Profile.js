@@ -1,15 +1,40 @@
-import React from "react";
+import React, {Component} from "react";
 import ProfilePic from "./ProfilePic";
 import ProfileData from "./ProfileData";
+import {connect} from "react-redux";
+import {fetchProfileData} from "../Redux/profile/profileActions"
 
-function Profile(props){
-    // console.log(props.profileData.followers)
-    return (
-        <div className="profile">
-            <ProfilePic profilePicUrl={props.profileData.profilePicUrl} />
-            <ProfileData profileData={props.profileData} />
-        </div>
-    )
+class Profile extends Component{
+    constructor(props){
+        super(props);
+    }
+
+    componentDidMount(){
+        this.props.fetchProfileData();
+    }
+
+    render(){
+        return (
+            <div className="profile">
+                <ProfilePic />
+                <ProfileData />
+            </div>
+        )
+    }
 }
 
-export default Profile;
+//not required here
+const mapStateToProps = state => ({
+    profileData : state.profileData
+})
+
+// const mapDispatchToProps = dispatch => ({
+//     fetchProfileData: () => dispatch(fetchProfileData())
+// });
+
+const mapDispatchToProps = {
+    fetchProfileData,
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Profile);
+
