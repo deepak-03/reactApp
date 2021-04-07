@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
-
+import {connect} from 'react-redux';
+import {changeCurrentTab} from "./redux/posts/postsActions";
+ 
 function MenuContainer(props){
+  console.log(props.currentTab)
   return (
-    <div className="menuContainer" id="menuContainer" onClick={props.handleTabSwitch}>
+    <div className="menuContainer" id="menuContainer" onClick={props.changeCurrentTab}>
       <a href="#imagesContainer" id="imageLink" className={`menuItems ${props.currentTab === "imageLink" ? "active" : ""}`}>
         <i className="fas fa-th "></i>
         <h4>POSTS</h4>
@@ -16,9 +19,17 @@ function MenuContainer(props){
   )
 }
 
+const mapStateToProps = state => ({
+  currentTab : state.posts.currentTab
+})
+
+const mapDispatchToProps = {
+  changeCurrentTab
+}
+
 MenuContainer.propTypes = {
   handleTabSwitch : PropTypes.func,
   currentTab : PropTypes.string
 }
 
-export default MenuContainer;
+export default connect(mapStateToProps,mapDispatchToProps)(MenuContainer);

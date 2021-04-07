@@ -1,5 +1,6 @@
 import LikeCommentDiv from "./LikeCommentDiv"
 import React from "react";
+import PropTypes from 'prop-types';
 
 function ImageElement(props){
    return(
@@ -8,6 +9,11 @@ function ImageElement(props){
       <LikeCommentDiv data={props.image} />
      </div>
      )
+}
+
+ImageElement.propTypes = {
+  image : PropTypes.object,
+  imgLink : PropTypes.string
 }
 
 export default ImageElement;

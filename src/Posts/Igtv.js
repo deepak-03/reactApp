@@ -1,10 +1,15 @@
 import React from "react";
 import IgtvElement from "./IgtvElement";
+import {connect} from "react-redux";
+import PropTypes from 'prop-types';
 
 function Igtv(props){
-    const videos = props.data.map(video => {
-        return <IgtvElement key={video.id} video={video} data={video} />
+    const videos = props.igtvData.map(video => {
+        return <IgtvElement key={video.id} video={video} />
     })
+
+    if(props.igtvData.loading)
+    return "Loading..."
 
     return(
         <div className={props.currentTab==="igtvLink" ? "images" : "images hidden"} id="igtvHere">
@@ -15,4 +20,14 @@ function Igtv(props){
     )
 }
 
-export default Igtv;
+const mapStateToProps = state => ({
+    igtvData : state.posts.igtvData,
+    currentTab : state.posts.currentTab
+  })
+  
+Igtv.propTypes = {
+    igtvData : PropTypes.array,
+    currentTab : PropTypes.string
+}
+
+export default connect(mapStateToProps)(Igtv);

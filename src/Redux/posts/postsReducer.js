@@ -1,12 +1,20 @@
 import {FETCH_POSTSDATA_REQUEST,
     FETCH_POSTSDATA_SUCCESS,
     FETCH_POSTSDATA_FAILURE,
-    TOGGLE_LIKE} from './postsTypes'
+    FETCH_IGTVDATA_SUCCESS,
+    FETCH_IGTVDATA_REQUEST,
+    FETCH_IGTVDATA_FAILURE,
+    CHANGE_CURRENT_TAB
+    } from './postsTypes'
 
 const init = {
-    loading: false,
+    postsLoading: false,
     postsData: [],
-    error: ''
+    postsError: null,
+    igtvLoading: false,
+    igtvData: [],
+    igtvError: null,
+    currentTab: "imageLink" 
 }
 
 const postsReducer = (state = init, action) => {
@@ -14,29 +22,55 @@ const postsReducer = (state = init, action) => {
         case FETCH_POSTSDATA_REQUEST:
             return {
                 ...state,
-                loading: true
+                postsLoading: true
             }
         case FETCH_POSTSDATA_SUCCESS:
             return{
-             loading: false, 
+             ...state,
+             postsLoading: false, 
              postsData: action.payload,
-             error:""
+             postsError:null
             }
         case FETCH_POSTSDATA_FAILURE:
-            return{
-              loading:false,
-              postsData:[],
-              error:action.payload 
-            }
-        case TOGGLE_LIKE:
-            return{
+            return {
                 ...state,
-                postsData: {
-                    ...state.postsData,
-                    ifLiked: !state.postsData.ifLiked,
-                    likes:  state.postsData.ifLiked ? (state.postsData.likes-1) : (state.postsData.likes+1)
-                }
+                loading: false,
+                postsData: [],
+                postsError: action.payload
             }
+        case FETCH_IGTVDATA_REQUEST:
+        return {
+            ...state,
+            igtvLoading: true
+        }
+        case FETCH_IGTVDATA_SUCCESS:
+            return{
+            ...state,
+            igtvLoading: false,
+            igtvError:null,
+            igtvData: action.payload
+            }
+        case FETCH_IGTVDATA_FAILURE:
+        return {
+            ...state,
+            loading: false,
+            igtvData: [],
+            igtvError: action.payload
+        }
+        case CHANGE_CURRENT_TAB:
+            return {
+                ...state,
+                currentTab: action.payload,
+            }
+        // case TOGGLE_LIKE:
+        //     return{
+        //         ...state,
+        //         postsData: {
+        //             ...state.postsData,
+        //             ifLiked: !state.postsData.ifLiked,
+        //             likes:  state.postsData.ifLiked ? (state.postsData.likes-1) : (state.postsData.likes+1)
+        //         }
+        //     }
          default: return state   
     }
 }

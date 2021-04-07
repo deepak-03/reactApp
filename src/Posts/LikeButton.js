@@ -1,12 +1,15 @@
 import React, {Component} from "react";
+import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 class LikeButton extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            ifLiked : this.props.data.ifLiked,
-            likes : this.props.data.likes
+            ifLiked : this.props.ifLiked,
+            likes : this.props.likes
         };
         this.handleLikeButton = this.handleLikeButton.bind(this);
     }
@@ -21,14 +24,18 @@ class LikeButton extends Component{
     }
 
     render(){
+        console.log(this.state.ifLiked, 2);
         return(
             <button className="likeCommentButton" onClick={this.handleLikeButton}>
-                <i className= {this.state.ifLiked ? "fas fa-heart onHoverIcon unlikedIcon" : "fas fa-heart onHoverIcon"} />
+                <FontAwesomeIcon className="onHoverIcon" color={this.state.ifLiked ? "red" : ""} icon={faHeart} />
                 <div>{this.state.likes}</div>
             </button>
         )
     }
-
 }
+ LikeButton.propTypes = {
+     ifLiked: PropTypes.bool,
+     likes: PropTypes.string
+ }
 
 export default LikeButton;

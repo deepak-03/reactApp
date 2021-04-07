@@ -1,39 +1,40 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Images from "./Images.js";
 import Igtv from "./Igtv.js";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import {fetchPostsData} from "../redux/posts/postsActions"
+import { fetchPostsData, fetchIgtvData } from "../redux/posts/postsActions"
 
-class Posts extends Component{
-    constructor(props){
+class Posts extends Component {
+    constructor(props) {
         super(props);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.fetchPostsData();
+        this.props.fetchIgtvData()
     }
 
-    render(){
-    return(
-        <div>
-            <Images currentTab={this.props.currentTab} />
-            <Igtv data={this.props.igtvData} currentTab={this.props.currentTab} />
-        </div>
-    )
-}
+    render() {
+        return (
+            <div>
+                <Images />
+                <Igtv />
+            </div>
+        )
+    }
 }
 
 Posts.propTypes = {
-    postsData : PropTypes.array,
-    igtvData : PropTypes.array,
-    currentTab : PropTypes.string
+    fetchPostsData: PropTypes.func,
+    currentTab: PropTypes.string
 }
 
 const mapDispatchToProps = {
     fetchPostsData,
+    fetchIgtvData
 };
 
 
 
-export default connect(null,mapDispatchToProps)(Posts);
+export default connect(null, mapDispatchToProps)(Posts);
