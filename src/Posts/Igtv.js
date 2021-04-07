@@ -8,7 +8,7 @@ function Igtv(props){
         return <IgtvElement key={video.id} video={video} />
     })
 
-    if(props.igtvData.loading)
+    if(props.loading)
     return "Loading..."
 
     return(
@@ -21,11 +21,13 @@ function Igtv(props){
 }
 
 const mapStateToProps = state => ({
+    loading : state.posts.igtvLoading,
     igtvData : state.posts.igtvData,
     currentTab : state.posts.currentTab
   })
   
 Igtv.propTypes = {
+    loading : PropTypes.bool,
     igtvData : PropTypes.array,
     currentTab : PropTypes.string
 }

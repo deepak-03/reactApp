@@ -26,7 +26,6 @@ class CommentButton extends Component{
         return(
             <button className="likeCommentButton" onClick={this.handleCommentButton}>
                 <FontAwesomeIcon className="onHoverIcon" color={this.state.ifCommented ? "green" : ""} icon={faComment} />
-                {/* <i className= {this.state.ifCommented ? "fas fa-comment onHoverIcon unCommentedIcon" : "fas fa-comment onHoverIcon"} /> */}
                 <div>{this.state.comments}</div>
             </button>
         )

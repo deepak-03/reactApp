@@ -34,7 +34,7 @@ const postsReducer = (state = init, action) => {
         case FETCH_POSTSDATA_FAILURE:
             return {
                 ...state,
-                loading: false,
+                postsLoading: false,
                 postsData: [],
                 postsError: action.payload
             }
@@ -53,7 +53,7 @@ const postsReducer = (state = init, action) => {
         case FETCH_IGTVDATA_FAILURE:
         return {
             ...state,
-            loading: false,
+            igtvLoading: false,
             igtvData: [],
             igtvError: action.payload
         }

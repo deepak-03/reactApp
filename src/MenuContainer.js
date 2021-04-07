@@ -29,6 +29,7 @@ const mapDispatchToProps = {
 
 MenuContainer.propTypes = {
   handleTabSwitch : PropTypes.func,
+  changeCurrentTab : PropTypes.string,
   currentTab : PropTypes.string
 }
 

@@ -27,7 +27,8 @@ class Posts extends Component {
 
 Posts.propTypes = {
     fetchPostsData: PropTypes.func,
-    currentTab: PropTypes.string
+    currentTab: PropTypes.string,
+    fetchIgtvData: PropTypes.func
 }
 
 const mapDispatchToProps = {

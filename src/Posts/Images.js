@@ -8,7 +8,7 @@ function Images(props){
         return <ImageElement key={image.id1} image={image}/>;
     });
 
-    if(props.postsData.loading)
+    if(props.loading)
     return "Loading..."
    
     return(
@@ -21,11 +21,13 @@ function Images(props){
 }
 
 const mapStateToProps = state => ({
+    loading : state.posts.postsLoading,
     postsData : state.posts.postsData,
     currentTab : state.posts.currentTab
   })
   
 Images.propTypes = {
+    loading : PropTypes.bool,
     currentTab : PropTypes.string,
     postsData : PropTypes.array
 }
