@@ -1,3 +1,9 @@
-import {combineReducers} from 'redux';
+import profileReducer from "./profile/profileReducer";
+import postsReducer from "./posts/postsReducer";
+import {combineReducers} from "redux";
 
-import profileReducer from './profile/profileReducer'
+const rootReducer = combineReducers({ 
+    profile:profileReducer, 
+    posts:postsReducer});
+
+export default rootReducer;

@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import PropTypes from 'prop-types';
 
 function ProfilePic(props){
     return(
@@ -11,10 +12,12 @@ function ProfilePic(props){
     )
 }
 
+ProfilePic.propTypes = {
+    profilePicUrl : PropTypes.string
+}
+
 const mapStateToProps = state => ({
-    profilePicUrl : state.profileData.profilePicUrl
+    profilePicUrl : state.profile.profileData.profilePicUrl
 })
-
-
 
 export default connect(mapStateToProps)(ProfilePic);

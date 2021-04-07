@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function MenuContainer(props){
   return (
@@ -13,6 +14,11 @@ function MenuContainer(props){
       </a>
     </div>
   )
+}
+
+MenuContainer.propTypes = {
+  handleTabSwitch : PropTypes.func,
+  currentTab : PropTypes.string
 }
 
 export default MenuContainer;

@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-import {toggleIfFollowed} from "../Redux/profile/profileActions";
-// import FollowButton from "./FollowButton"
+import {toggleIfFollowed} from "../redux/profile/profileActions";
+import PropTypes from 'prop-types';
 
 function ProfileButtons(props){
 
@@ -19,8 +19,13 @@ function ProfileButtons(props){
   )
 }
 
+ProfileButtons.propTypes = {
+  ifFollowed : PropTypes.bool,
+  toggleIfFollowed : PropTypes.func
+}
+
 const mapStateToProps = state => ({
-    ifFollowed : state.profileData.ifFollowed
+    ifFollowed : state.profile.profileData.ifFollowed
 })
 
 // const mapDispatchToProps = dispatch => ({

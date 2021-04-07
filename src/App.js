@@ -9,10 +9,7 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state ={
-            loading:false,
-            profileData:{},
             igtvData:[],
-            postsData:[],
             currentTab: "imageLink"
         };
         this.handleTabSwitch = this.handleTabSwitch.bind(this);
@@ -24,7 +21,7 @@ class App extends Component{
                .then(response => response.json())
                .then(data => {
                    this.setState({
-                       postsData: data.posts,
+                    //    postsData: data.posts,
                        igtvData: data.igtv,
                        loading:true
                    });
@@ -48,12 +45,12 @@ class App extends Component{
         )
         return (
             <div className="wrapper">
-                <Navbar accountPicUrl={this.state.profileData.accountPicUrl}/>
+                <Navbar/>
                 <div className="mainPage">
                     <Profile />
                     <div id="imageVideoWrapper">
                         <MenuContainer handleTabSwitch = {this.handleTabSwitch} currentTab={this.state.currentTab} />
-                        <Posts currentTab = {this.state.currentTab} postsData={this.state.postsData} igtvData={this.state.igtvData}/>
+                        <Posts currentTab = {this.state.currentTab} igtvData={this.state.igtvData}/>
                     </div>
                 </div>
             </div>

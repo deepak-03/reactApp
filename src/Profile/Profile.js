@@ -1,8 +1,9 @@
 import React, {Component} from "react";
 import ProfilePic from "./ProfilePic";
 import ProfileData from "./ProfileData";
+import PropTypes from 'prop-types';
 import {connect} from "react-redux";
-import {fetchProfileData} from "../Redux/profile/profileActions"
+import {fetchProfileData} from "../redux/profile/profileActions"
 
 class Profile extends Component{
     constructor(props){
@@ -23,10 +24,14 @@ class Profile extends Component{
     }
 }
 
+Profile.propTypes = {
+    fetchProfileData : PropTypes.func
+}
+
 //not required here
-const mapStateToProps = state => ({
-    profileData : state.profileData
-})
+// const mapStateToProps = state => ({
+//     profileData : state.profile.profileData
+// })
 
 // const mapDispatchToProps = dispatch => ({
 //     fetchProfileData: () => dispatch(fetchProfileData())
@@ -36,5 +41,7 @@ const mapDispatchToProps = {
     fetchProfileData,
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Profile);
+
+
+export default connect(null,mapDispatchToProps)(Profile);
 

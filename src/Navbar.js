@@ -1,4 +1,6 @@
 import React from "react";
+import {connect} from "react-redux";
+import PropTypes from 'prop-types';
 
 function Navbar(props){
      return (
@@ -21,9 +23,15 @@ function Navbar(props){
                     </div>
                 </div>
         </nav>
-            )
-    
+            )  
 }
 
+Navbar.propTypes = {
+    accountPicUrl : PropTypes.string
+}
 
-export default Navbar;
+const mapStateToProps = state => ({
+    accountPicUrl : state.profile.profileData.accountPicUrl
+})
+
+export default connect(mapStateToProps)(Navbar);

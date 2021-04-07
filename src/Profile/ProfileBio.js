@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import PropTypes from 'prop-types';
 
 function ProfileBio({profileData :{profileName,aboutYou,description,externalLink}}){
     return(
@@ -22,8 +23,12 @@ function ProfileBio({profileData :{profileName,aboutYou,description,externalLink
     )
 }
 
+ProfileBio.propTypes = {
+    profileData : PropTypes.object
+}
+
 const mapStateToProps = state => ({
-    profileData : state.profileData
+    profileData : state.profile.profileData
   })
   
 export default connect(mapStateToProps)(ProfileBio);

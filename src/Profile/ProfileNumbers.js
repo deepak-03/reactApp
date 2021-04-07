@@ -1,5 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
+import PropTypes from 'prop-types';
 
 function ProfileNumbers({profileData: {numberOfPosts, followers, following}}){
     // console.log(typeof(props.followers));
@@ -13,8 +14,12 @@ function ProfileNumbers({profileData: {numberOfPosts, followers, following}}){
     )
 }
 
+ProfileNumbers.propTypes = {
+    profileData : PropTypes.object
+}
+
 const mapStateToProps = state => ({
-    profileData : state.profileData
+    profileData : state.profile.profileData
 })
 
 export default connect(mapStateToProps)(ProfileNumbers);

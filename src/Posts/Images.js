@@ -1,10 +1,10 @@
 import React from "react";
 import ImageElement from "./ImageElement";
-// import LikeCommentDiv from "./LikeCommentDiv";
+import {connect} from "react-redux";
 
 function Images(props){
-    const images = props.data.map((image) =>{
-        return <ImageElement key={image.id1} image={image} data={image} />;
+    const images = props.postsData.map((image) =>{
+        return <ImageElement key={image.id1} image={image}/>;
     });
 
     return(
@@ -16,4 +16,9 @@ function Images(props){
     );
 }
 
-export default Images;
+const mapStateToProps = state => ({
+    postsData : state.posts.postsData
+  })
+  
+
+export default connect(mapStateToProps)(Images);

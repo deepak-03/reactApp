@@ -10,7 +10,7 @@ class CommentButton extends Component{
         this.handleCommentButton = this.handleCommentButton.bind(this);
     }
 
-    handleCommentButton(e){
+    handleCommentButton(){
         this.setState(prev => {
             return {
                 ifCommented : !prev.ifCommented,
